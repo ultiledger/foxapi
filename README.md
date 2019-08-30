@@ -19,14 +19,12 @@ yarn start
 
 market price lastest 24hours
 
-GET /v2/exchanges
+GET /v2/exchanges/pair/:pair
 
 request parameters:
 
 name:   pair 	
-required:   true 	
-Type:   String 	
-Ranges: xrpcny, xlmcny, ultcny, ultxrp, xlm/xrp
+Ranges: xrpcny, xlmcny, ultcny, ultxrp, xlmxrp
 
 
 
