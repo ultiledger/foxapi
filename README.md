@@ -1,10 +1,10 @@
-# stellar-extra-api
+# ripplefox api
 
 ## install nvm
 sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+
 ## install node
 nvm install node
-
 
 # install yarn
 
@@ -15,13 +15,18 @@ sudo apt-get update && sudo apt-get install yarn
 
 ## install api
 
+yarn start 
+
 market price lastest 24hours
 
 GET /v2/exchanges
 
 request parameters:
 
-pair 	required:true 	Type:String 	Ranges: xrpcny, xlmcny, ultcny, ultxrp, xlm/xrp
+name:   pair 	
+required:   true 	
+Type:   String 	
+Ranges: xrpcny, xlmcny, ultcny, ultxrp, xlm/xrp
 
 
 
