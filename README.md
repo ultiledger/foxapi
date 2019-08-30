@@ -13,15 +13,14 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 
 sudo apt-get update && sudo apt-get install yarn
 
-## install api
+run yarn start
+## api
 
-yarn start 
+### market price lastest 24hours
 
-market price lastest 24hours
+### GET /v2/exchanges
 
-GET /v2/exchanges
-
-request parameters:
+### request parameters:
 
 name:   pair 	
 required:   true 	
