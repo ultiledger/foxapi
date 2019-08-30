@@ -2,15 +2,17 @@
 
 ## REST market price lastest 24hours
 
-### GET /v2/exchanges
+**GET /v2/exchanges**
 
-### GET /v2/exchanges/pair/:pair
+**GET /v2/exchanges/pair/:pair**
+
+**params** 
 
 name | type | Ranges
 ----|------|----
 pair | string  | xrpcny, xlmcny, ultcny, ultxrp, xlmxrp
 
-### Response
+**Response**
 
 name | type | desc
 ----|------|----
