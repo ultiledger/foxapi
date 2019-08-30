@@ -4,14 +4,19 @@
 
 ### GET /v2/exchanges
 
-
 ### GET /v2/exchanges/pair/:pair
 
-request parameters:
+name | type | Ranges
+----|------|----
+pair | string  | xrpcny, xlmcny, ultcny, ultxrp, xlmxrp
 
-name:   pair 	
-Ranges: xrpcny, xlmcny, ultcny, ultxrp, xlmxrp
+### Response
 
+name | type | desc
+----|------|----
+base_volume | number  | base currecny volume
+close | string  | current price
+high | string  | 24h high price
 
 # Install
 
