@@ -1,4 +1,4 @@
-# Ripplefox Api
+# Ripplefox Market Api
 
 ## REST market price lastest 24hours
 
