@@ -1,4 +1,19 @@
-# ripplefox api
+# Ripplefox Api
+
+## REST market price lastest 24hours
+
+### GET /v2/exchanges
+
+
+### GET /v2/exchanges/pair/:pair
+
+request parameters:
+
+name:   pair 	
+Ranges: xrpcny, xlmcny, ultcny, ultxrp, xlmxrp
+
+
+# Install
 
 ## install nvm
 sudo curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
@@ -13,18 +28,6 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 
 sudo apt-get update && sudo apt-get install yarn
 
-## install api
-
-yarn start 
-
-market price lastest 24hours
-
-GET /v2/exchanges/pair/:pair
-
-request parameters:
-
-name:   pair 	
-Ranges: xrpcny, xlmcny, ultcny, ultxrp, xlmxrp
 
 
 
