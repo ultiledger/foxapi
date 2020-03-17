@@ -5,38 +5,14 @@ const _ = require('underscore');
 const router = new Router()
 module.exports = router
 
-const urls = {
-  xrpcny:`https://data.ripple.com/v2/exchanges/XRP/CNY+rKiCet8SdvWxPXnAgYarFUXMh1zCPz432Y`,
-  xlmcny:`https://data.ripple.com/v2/exchanges/XLM+rKiCet8SdvWxPXnAgYarFUXMh1zCPz432Y/CNY+rKiCet8SdvWxPXnAgYarFUXMh1zCPz432Y`,
-  ultcny:`https://data.ripple.com/v2/exchanges/ULT+rKiCet8SdvWxPXnAgYarFUXMh1zCPz432Y/CNY+rKiCet8SdvWxPXnAgYarFUXMh1zCPz432Y`,
-  ultxrp:`https://data.ripple.com/v2/exchanges/ULT+rKiCet8SdvWxPXnAgYarFUXMh1zCPz432Y/XRP`,
-  xlmxrp:`https://data.ripple.com/v2/exchanges/XLM+rKiCet8SdvWxPXnAgYarFUXMh1zCPz432Y/XRP`,
-}
+const snapshot = require('./takesnapshot.js');
 
 router.get('/', async (req, res) => {
-  let rsp ={};
-   let startdate = (moment(new Date().getTime()).subtract(32,'hours')).format("YYYY-MM-DDThh:mm:ss");
-   let options = {
-    uri: 'url',
-    qs: {
-      limit : 500,
-      interval: '1hour',
-      start:startdate,
-    },
-    json: true 
-  };
-   let datas = {};
-   for(let pair of Object.keys(urls)) {
-    options.uri = urls[pair];
-    let rsp2 = await request(options).catch(e=>{
-      console.log(e);
-    })
-    if(rsp2 && rsp2.result=='success' && rsp2.count>0) {
-      datas[pair] = _format(rsp2);
-    }
-   }
-   rsp.data = datas;
-   rsp.result = 'success';
+   let rsp ={
+       data : snapshot.data,
+       updated_time : snapshot.updated_time,
+       result : 'success'
+   };
    res.send(rsp);
 })
 
@@ -52,7 +28,7 @@ router.get('/pair/:pair', async (req, res) => {
     if(!interval) {
       interval = '1hour';
     }
-     const node = urls[pair];
+     const node = snapshot.urls[pair];
      if(!node) {
       rsp.result = 'error';
       rsp.message = 'pair is not exist';
@@ -106,4 +82,3 @@ _format = function(rsp2) {
   data.open = last.open;
   return data;
 }
-
