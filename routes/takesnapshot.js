@@ -41,7 +41,7 @@ async function takesnapshot() {
 
 async function task() {
   await takesnapshot();
-  setTimeout(function(){task();}, 600000);
+  setTimeout(function(){task();}, 300000);
 }
 
 task();
